@@ -13,18 +13,15 @@ namespace Refactoring
             {
                 if (errors < 3)
                 {
-                    Console.WriteLine("introdueix un valor entre el 5 i el 150 (inclosos). Tens 3 intents com a màxim");
-                    input = Convert.ToInt32(Console.ReadLine());
-                    if ((input < 5 || input > 150))
+                    do
                     {
-                        Console.WriteLine("El valor introduït no és vàlid.");
+                        Console.WriteLine("introdueix un valor entre el 5 i el 150 (inclosos). Tens 3 intents com a màxim");
+                        input = Convert.ToInt32(Console.ReadLine());
                         errors++;
-                        i--;
-                    }
-                    else
-                    {
+                    } while (input < 5 || input > 150);                                  
+                    
                         numbers[i] = input;
-                    }
+                    
                 }
             }
             if (errors == 3)
@@ -35,7 +32,7 @@ namespace Refactoring
             {
                 for (int i = 0; i < numbers.Length; i++)
                 {
-                    answer = answer * numbers[i];
+                    answer *= numbers[i];
                 }
                 Console.WriteLine(answer);
             }
